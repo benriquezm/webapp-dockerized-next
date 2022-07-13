@@ -1,0 +1,19 @@
+# (Required. If a version is not indicated, it would be version 1, which is deprecated)
+version: "3"
+# Required indicates the containerized services to run
+services:
+  nextjs: #  indicates the name of the containerized service
+    build:  # indicates that the service will be based on the construction of the Dockerfile indicated in <path>
+      context: ./src
+      dockerfile: Dockerfile
+    # image: php:7.1-apache #  name of the image to use
+    # container_name: test_webphp # name of the container
+    # env_file: .env # pass multiple environment variables from an external file to a service's containers
+    ports:  # allows mapping <host_port> to <container_port>. Multiple mappings can be assigned, as a YAML array (prepend - to each item)
+      - 3000:3000
+      # - "443:443"
+    # optional define the data persistence of our containers.
+    volumes:
+      - ./src:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/.next
