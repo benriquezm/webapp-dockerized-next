@@ -11,7 +11,11 @@ module.exports = {
         },
     },
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                Nunito: ['Nunito', 'sans-serif'],
+            },
+        },
     },
     plugins: [],
     darkMode: `class`,
